@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Ti ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+
+    width:90%;
+    max-width:650px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+
+}
+
+img{
+
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+border:6px solid white;
+margin-bottom:20px;
+
+}
+
+h1{
+
+font-size:38px;
+margin-bottom:15px;
+
+}
+
+p{
+
+font-size:20px;
+line-height:1.6;
+
+}
+
+button{
+
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+margin:15px;
+transition:.3s;
+
+}
+
+#pregunta{
+
+background:#ff0066;
+color:white;
+
+}
+
+#si{
+
+background:#00c853;
+color:white;
+display:none;
+
+}
+
+#no{
+
+background:#d50000;
+color:white;
+display:none;
+position:absolute;
+
+}
+
+#final{
+
+display:none;
+font-size:40px;
+margin-top:20px;
+animation:latido .8s infinite;
+
+}
+
+@keyframes latido{
+
+50%{
+transform:scale(1.1);
+}
+
+}
+
+.heart{
+
+position:absolute;
+color:white;
+font-size:25px;
+animation:caer linear forwards;
+
+}
+
+@keyframes caer{
+
+0%{
+transform:translateY(-50px);
+opacity:1;
+}
+
+100%{
+
+transform:translateY(110vh);
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- CAMBIA ESTA IMAGEN -->
+<img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=600" alt="">
+
+<h1>Hola ❤️</h1>
+
+<p>
+
+Desde que llegaste a mi vida, cada día tiene algo especial.
+Me haces sonreír incluso en los momentos más difíciles.
+Gracias por ser tú.
+
+</p>
+
+<br>
+
+<p>
+
+Hay algo que quiero preguntarte...
+
+</p>
+
+<button id="pregunta" onclick="mostrarPregunta()">
+💌 Descúbrelo
+</button>
+
+<div id="opciones">
+
+<h2 id="textoPregunta" style="display:none;">
+¿Quieres ser mi novia? ❤️
+</h2>
+
+<button id="si" onclick="acepto()">
+Sí 💖
+</button>
+
+<button id="no" onmouseover="escapar()">
+No 😅
+</button>
+
+</div>
+
+<div id="final">
+
+🥹❤️
+
+<br><br>
+
+¡¡Sabía que dirías que sí!!
+
+<br><br>
+
+Te prometo hacerte muy feliz.
+
+</div>
+
+</div>
+
+<script>
+
+function mostrarPregunta(){
+
+document.getElementById("pregunta").style.display="none";
+
+document.getElementById("textoPregunta").style.display="block";
+
+document.getElementById("si").style.display="inline-block";
+
+document.getElementById("no").style.display="inline-block";
+
+}
+
+function escapar(){
+
+const boton=document.getElementById("no");
+
+boton.style.left=Math.random()*(window.innerWidth-120)+"px";
+
+boton.style.top=Math.random()*(window.innerHeight-60)+"px";
+
+}
+
+function acepto(){
+
+document.getElementById("opciones").style.display="none";
+
+document.getElementById("final").style.display="block";
+
+for(let i=0;i<200;i++){
+
+let corazon=document.createElement("div");
+
+corazon.className="heart";
+
+corazon.innerHTML="❤️";
+
+corazon.style.left=Math.random()*100+"vw";
+
+corazon.style.animationDuration=(Math.random()*3+2)+"s";
+
+corazon.style.fontSize=(Math.random()*25+15)+"px";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+
+corazon.remove();
+
+},5000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
